@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Item_Fueru : MonoBehaviour {
 	public GameObject[] playerObject;	//playerプレハブ。一応、配列で管理
+	GameObject gameController;			//検索したオブジェクト入れる用
 
 	void Start () {
+		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
 	}
 	
 	void Update () {
@@ -24,7 +26,8 @@ public class Item_Fueru : MonoBehaviour {
 				transform.rotation
 			);
 			//gcって仮の変数にGameControllerのコンポーネントを入れる
-//			GameController gc = gameController.GetComponent<GameController>();
+			GameController gc = gameController.GetComponent<GameController>();
+			gc.totalPlayer += 1;		//player数の加算
 			Destroy(gameObject);		//このGameObjectを［Hierrchy］ビューから削除する
 		}
 	}
