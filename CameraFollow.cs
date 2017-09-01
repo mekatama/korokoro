@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour {
+	Vector3 diff;
+	public GameObject target;	//追従するオブジェクト
+	public float followSpeed;
+
+	void Start () {
+		diff = target.transform.position - transform.position;
+	}
+	
+//	void LateUpdate () {
+	void Update () {
+		transform.position = Vector3.Lerp(
+			transform.position,
+			target.transform.position - diff,
+			Time.deltaTime * followSpeed
+		);
+	}
+}
