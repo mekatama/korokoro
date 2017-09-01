@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 	GameObject gameController;		//検索したオブジェクト入れる用
 	GameObject player;				//検索したオブジェクト入れる用
-	public float jumpPower;	//ジャンプ力
+	public float jumpPower;			//ジャンプ力
+	private bool oneTap = false;	//一回だけ処理
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
@@ -20,8 +21,19 @@ public class Player : MonoBehaviour {
 		Tap gc = gameController.GetComponent<Tap>();
 		//jaump
 		if(gc.playerTap){
-			rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
-			Debug.Log("PLAYER TAP !!");
+			if(oneTap == false){
+		Debug.Log(jumpPower);
+				rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
+				rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
+				Debug.Log("PLAYER TAP !!");
+				oneTap = true;
+			}
 		}
+
+		if(gc.playerTap == false){
+			oneTap = false;
+		}
+		
+
 	}
 }
