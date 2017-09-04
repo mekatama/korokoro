@@ -19,7 +19,8 @@ public class Player : MonoBehaviour {
 		Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 		//gcって仮の変数にGameControllerのコンポーネントを入れる
 		Tap gc = gameController.GetComponent<Tap>();
-		//jaump		if(gc.playerTap){
+		//jaump
+		if(gc.playerTap){
 			if(oneTap == false && ground == true){
 				rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
 				rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
