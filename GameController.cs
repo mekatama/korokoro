@@ -9,11 +9,15 @@ public class GameController : MonoBehaviour {
 	private float bgCreate_posX = 18.0f;//次のBG生成する座標
 	private float bgCreate_posY = -1.6f;//次のBG生成する座標
 	public GameObject[] bgObject;		//BGプレハブ。一応、配列で管理
+	public float timePlaying;			//経過時間
 
 	void Start () {
 	}
 	
 	void Update () {
+		//経過時間チェック
+		timePlaying += Time.deltaTime;	//経過時間の保存
+
 		if(player.transform.position.x > bgCreate){
 			//ランダムで出現BGを決める
 			int aType = Random.Range(0,2);	//挙動確認用仮の値
