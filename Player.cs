@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	GameObject player;				//検索したオブジェクト入れる用
 	public float jumpPower;			//ジャンプ力
 	private bool oneTap = false;	//一回だけ処理
+	private bool ground = false;	//地面にいるフラグ
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
@@ -18,20 +19,24 @@ public class Player : MonoBehaviour {
 		Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 		//gcって仮の変数にGameControllerのコンポーネントを入れる
 		Tap gc = gameController.GetComponent<Tap>();
-		//jaump
-		if(gc.playerTap){
-			if(oneTap == false){
+		//jaump		if(gc.playerTap){
+			if(oneTap == false && ground == true){
 				rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
 				rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
 				Debug.Log("PLAYER TAP !!");
 				oneTap = true;
+				ground = false;
 			}
 		}
-
+		//Tapスクリプトの判定を見ている
 		if(gc.playerTap == false){
 			oneTap = false;
 		}
-		
+	}
 
+	//他のオブジェクトとの当たり判定
+	void OnCollisionEnter2D(Collision2D other) {
+		//接触時の処理
+		ground = true;	//地面フラグon
 	}
 }
