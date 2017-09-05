@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public float jumpPower;			//ジャンプ力
 	private bool oneTap = false;	//一回だけ処理
 	private bool ground = false;	//地面にいるフラグ
+	public bool cameraFollowStop;	//カメラ追従フラグ
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
@@ -35,9 +36,17 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	//他のオブジェクトとの当たり判定
+	//他のオブジェクトとのコリジョン判定
 	void OnCollisionEnter2D(Collision2D other) {
 		//接触時の処理
 		ground = true;	//地面フラグon
+	}
+
+	//他のオブジェクトとの当たり判定
+	void OnTriggerEnter2D(Collider2D other) {
+		//接触時の処理
+		if(other.tag == "Goal"){
+			cameraFollowStop = true;	//追従停止フラグon
+		}
 	}
 }
