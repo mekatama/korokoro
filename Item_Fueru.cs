@@ -12,9 +12,6 @@ public class Item_Fueru : MonoBehaviour {
 		playerSub = GameObject.FindWithTag ("PlayerSub");			//Playerタグのオブジェクトを探す
 	}
 	
-	void Update () {
-	}
-
 	//他のオブジェクトとの当たり判定
 	void OnTriggerEnter2D(Collider2D other) {
 		//ランダムで出現playerを決める
