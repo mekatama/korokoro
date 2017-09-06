@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 	public GameObject bgObjectGoal;		//GOAL用BGプレハブ
 	public float timePlaying;			//経過時間
 	public float goalBg;				//goal用BGが出現する判定
+	public float finishTime;			//ゴール時のタイムを保存
 
 	void Start () {
 	}
@@ -19,6 +20,13 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		//経過時間チェック
 		timePlaying += Time.deltaTime;	//経過時間の保存
+	
+		//pcって仮の変数にplayerコンポーネントを入れる
+		Player pc = player.GetComponent<Player>();
+		if(pc.goalTiming){
+			finishTime = timePlaying;	//ゴール時のタイムを保存
+			pc.goalTiming = false;		//一回だけ処理
+		}
 
 		if(player.transform.position.x > bgCreate){
 			if(bgCreate < goalBg){
@@ -40,11 +48,9 @@ public class GameController : MonoBehaviour {
 					transform.rotation
 				);
 			}
-
 			bgCreate += 18.0f;		//次の判定用に加算
 			bgCreate_posX += 18.0f;	//次の配置用に加算
 			bgCreate_posY -= 1.6f;	//次の配置用に加算
-//			Debug.Log("BG GO !!");
 		}
 	}
 }
