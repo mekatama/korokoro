@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
 	private bool oneTap = false;	//一回だけ処理
 	private bool ground = false;	//地面にいるフラグ
 	public bool cameraFollowStop;	//カメラ追従フラグ
+	public Canvas goalCamvas;		//UI
+	public Canvas playCamvas;		//UI
+	public bool goalTiming;			//ゴールタイミングのフラグ
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
@@ -47,6 +50,12 @@ public class Player : MonoBehaviour {
 		//接触時の処理
 		if(other.tag == "Goal"){
 			cameraFollowStop = true;	//追従停止フラグon
+		}
+		//ゴール時
+		if(other.tag == "GoalUI"){
+			goalCamvas.enabled = true;	//GoalUI表示
+			playCamvas.enabled = false;	//play中UI非表示
+			goalTiming = true;			//ゴールタイミングのフラグon
 		}
 	}
 }
