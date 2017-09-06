@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//そもそも、このスクリプト不要かも
 public class UI_Goal : MonoBehaviour {
 	public Canvas goalCamvas;
 	public bool goalUI = false;	//GameOver用のフラグ。player側て制御する
