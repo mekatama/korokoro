@@ -57,5 +57,10 @@ public class Player : MonoBehaviour {
 			playCamvas.enabled = false;	//play中UI非表示
 			goalTiming = true;			//ゴールタイミングのフラグon
 		}
+		//落下時
+		if(other.tag == "DeadNaraku"){
+			//■ここに縮小処理をいれたい
+//			Destroy(gameObject);	//オブジェクトの削除
+		}
 	}
 }
