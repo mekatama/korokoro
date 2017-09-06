@@ -9,7 +9,7 @@ public class Item_Fueru : MonoBehaviour {
 
 	void Start () {
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
-		playerSub = GameObject.FindWithTag ("PlayerSub");			//Playerタグのオブジェクトを探す
+		playerSub = GameObject.FindWithTag ("PlayerSub");			//PlayerSubタグのオブジェクトを探す
 	}
 	
 	//他のオブジェクトとの当たり判定
