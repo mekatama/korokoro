@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour {
 	
 //	void LateUpdate () {
 	void Update () {
-		//gcって仮の変数にGameControllerのコンポーネントを入れる
+		//pcって仮の変数にPlayerのコンポーネントを入れる
 		Player pc = player.GetComponent<Player>();
 		//カメラ追従
 		if(pc.cameraFollowStop == false){			//追従フラグを見ている
