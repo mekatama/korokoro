@@ -11,31 +11,38 @@ public class Player : MonoBehaviour {
 	public bool cameraFollowStop;	//カメラ追従フラグ
 	public Canvas goalCamvas;		//UI
 	public Canvas playCamvas;		//UI
-	public bool goalTiming;			//ゴールタイミングのフラグ
+	public Canvas gameOverCamvas;	//UI
+	public bool goalTiming;			//ゴールタイミングのフラグ(time保存用)
+	public bool goalNow;			//ゴール中のフラグ
+	public bool gameOver;			//ゲームオーバーフラグ
 
 	void Start () {
+		goalNow = false;
+		gameOver = false;	//初期化
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
 	}
 	
 	void Update () {
-		//rbって仮の変数にRigidbody2Dコンポーネントを入れる
-		Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-		//gcって仮の変数にGameControllerのコンポーネントを入れる
-		Tap gc = gameController.GetComponent<Tap>();
-		//jaump
-		if(gc.playerTap){
-			if(oneTap == false && ground == true){
-				rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
-				rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
-				Debug.Log("PLAYER TAP !!");
-				oneTap = true;
-				ground = false;
+		if(gameOver == false){
+			//rbって仮の変数にRigidbody2Dコンポーネントを入れる
+			Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+			//gcって仮の変数にGameControllerのコンポーネントを入れる
+			Tap gc = gameController.GetComponent<Tap>();
+			//jaump
+			if(gc.playerTap){
+				if(oneTap == false && ground == true){
+					rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
+					rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
+					Debug.Log("PLAYER TAP !!");
+					oneTap = true;
+					ground = false;
+				}
 			}
-		}
-		//Tapスクリプトの判定を見ている
-		if(gc.playerTap == false){
-			oneTap = false;
+			//Tapスクリプトの判定を見ている
+			if(gc.playerTap == false){
+				oneTap = false;
+			}
 		}
 	}
 
@@ -56,11 +63,26 @@ public class Player : MonoBehaviour {
 			goalCamvas.enabled = true;	//GoalUI表示
 			playCamvas.enabled = false;	//play中UI非表示
 			goalTiming = true;			//ゴールタイミングのフラグon
+			goalNow = true;				//ゴール中のフラグon
 		}
 		//落下時
 		if(other.tag == "DeadNaraku"){
-			//■ここに縮小処理をいれたい
-//			Destroy(gameObject);	//オブジェクトの削除
+			//pcって仮の変数にPlayerのコンポーネントを入れる
+			Player pc = player.GetComponent<Player>();
+
+			gameOverCamvas.enabled = true;	//GameOverUI表示
+			playCamvas.enabled = false;		//play中UI非表示
+			//iTweenで縮小する
+			iTween.ScaleTo (gameObject, iTween.Hash ("x",0, "y", 0, "time", 1f));
+			//0.1秒後に呼び出す
+			Invoke("kesu", 1.0f);
+			gameOver = true;				//ゲームオーバーフラグon
 		}
 	}
+
+	//時間差で非アクティブ用
+	void kesu(){
+		gameObject.SetActive (false);	//GameObjectを非アクティブにする
+	}
+
 }
