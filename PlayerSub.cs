@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerSub : MonoBehaviour {
 	GameObject gameController;		//検索したオブジェクト入れる用
-	GameObject player;				//検索したオブジェクト入れる用
+//	GameObject player;				//検索したオブジェクト入れる用
 
 	void Start () {
-		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
+//		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
 	}
 
