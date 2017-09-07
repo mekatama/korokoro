@@ -7,27 +7,39 @@ public class Tap : MonoBehaviour {
 	public bool structureTap = false;	//structureをタップしたかどうかのフラグ
 	public bool tapArea = false;		//TapAreaをタップしたかどうかのフラグ
 	public GameObject[] anaumeTumiki;	//穴埋め用のプレハブ。一応、配列で管理
+	GameObject player;					//検索したオブジェクト入れる用
+
+	void Start () {
+		player = GameObject.FindWithTag ("Player");	//Playerタグのオブジェクトを探す
+	}
 
 	void Update () {
+		//pcって仮の変数にPlayerのコンポーネントを入れる
+		Player pc = player.GetComponent<Player>();
+
 		GameObject obj = getClickObject();	//タップしたオブジェクトを入れる		
 		//タップした判定
  		if(Input.GetMouseButtonDown(0)){
 			Vector2 vec = Camera.main.ScreenToWorldPoint(Input.mousePosition);	//スクリーン座標
 
 			if(obj.tag == "Player"){
-				Debug.Log("Player!!");
+//				Debug.Log("Player!!");
 				playerTap = true;
 			}else if(obj.tag == "Structure"){
-				Debug.Log("Structure!!");
+//				Debug.Log("Structure!!");
 				structureTap = true;
 			}else if(obj.tag == "TapArea"){
-				Debug.Log("TapArea!!");
-				//穴埋め用のプレハブを生成する
-				GameObject anaumeT = (GameObject)Instantiate(
-					anaumeTumiki[0],	//ランダム生成に対応する予定
-					vec,
-					transform.rotation
-				);
+//				Debug.Log("TapArea!!");
+				//ゴール時orゲームオーバーの画面では生成しない判定
+				if(pc.gameOver == false && pc.goalNow == false){
+					Debug.Log(pc.gameOver + " : gameOver");
+					//穴埋め用のプレハブを生成する
+					GameObject anaumeT = (GameObject)Instantiate(
+						anaumeTumiki[0],	//ランダム生成に対応する予定
+						vec,
+						transform.rotation
+					);
+				}
 				tapArea = true;
 			}
 		 }
