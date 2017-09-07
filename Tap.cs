@@ -32,7 +32,6 @@ public class Tap : MonoBehaviour {
 //				Debug.Log("TapArea!!");
 				//ゴール時orゲームオーバーの画面では生成しない判定
 				if(pc.gameOver == false && pc.goalNow == false){
-					Debug.Log(pc.gameOver + " : gameOver");
 					//穴埋め用のプレハブを生成する
 					GameObject anaumeT = (GameObject)Instantiate(
 						anaumeTumiki[0],	//ランダム生成に対応する予定
@@ -41,6 +40,9 @@ public class Tap : MonoBehaviour {
 					);
 				}
 				tapArea = true;
+			}else if(obj.tag == "Tumiki"){
+//				Debug.Log("Tuniki!!");
+				Destroy(obj);	//オブジェクトの削除
 			}
 		 }
 
