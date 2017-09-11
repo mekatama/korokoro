@@ -12,8 +12,13 @@ public class Title_Controller : MonoBehaviour {
 		}
 	}
 
-	//スタートボタン用の制御関数
-	public void OnStartButtonClicked(){
+	//スタートボタン(Normal)用の制御関数
+	public void OnStartButtonNormalClicked(){
+		SceneManager.LoadScene("StageSelect");	//シーンのロード
+	}
+
+	//スタートボタン(Expert)用の制御関数
+	public void OnStartButtonExpertClicked(){
 		SceneManager.LoadScene("Main");	//シーンのロード
 	}
 
