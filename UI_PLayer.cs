@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//表示しなくする予定
 public class UI_PLayer : MonoBehaviour {
 	public Text playerNum;		//player数を表示するオブジェクト用
 	GameObject gameController;	//検索したオブジェクト入れる用
