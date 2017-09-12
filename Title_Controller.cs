@@ -19,7 +19,7 @@ public class Title_Controller : MonoBehaviour {
 
 	//スタートボタン(Expert)用の制御関数
 	public void OnStartButtonExpertClicked(){
-		SceneManager.LoadScene("Main");	//シーンのロード
+		SceneManager.LoadScene("Main0");	//シーンのロード
 	}
 
 	//遊び方ボタン用の制御関数

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 	public int totalPlayer = 0;			//ここでplayer数を管理していく
@@ -20,11 +21,45 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		//経過時間チェック
 		timePlaying += Time.deltaTime;	//経過時間の保存
-	
 		//pcって仮の変数にplayerコンポーネントを入れる
 		Player pc = player.GetComponent<Player>();
+
+		//ゴール時の処理
 		if(pc.goalTiming){
 			finishTime = timePlaying;	//ゴール時のタイムを保存
+			//Main0用
+			if(SceneManager.GetActiveScene ().name == "Main0"){
+				Debug.Log("main0----");
+			}
+			//Main1用
+			if(SceneManager.GetActiveScene ().name == "Main1"){
+				Debug.Log("main1----");
+			}
+			//Main2用
+			if(SceneManager.GetActiveScene ().name == "Main2"){
+				Debug.Log("main2----");
+			}
+			//Main3用
+			if(SceneManager.GetActiveScene ().name == "Main3"){
+				Debug.Log("main3----");
+			}
+			//Main4用
+			if(SceneManager.GetActiveScene ().name == "Main4"){
+				Debug.Log("main4----");
+			}
+
+			//ハイスコアの保存(匹数)
+			if(PlayerPrefs.GetInt("HighScorePlayer") < totalPlayer){
+				//ハイスコア保存
+				PlayerPrefs.SetInt("HighScorePlayer", totalPlayer);
+				Debug.Log("HighScorePlayer:" + PlayerPrefs.GetInt("HighScorePlayer"));
+			}
+			//ハイスコアの保存(タイム)
+			if(PlayerPrefs.GetFloat("HighScoreTime") < finishTime){
+				//ハイスコア保存
+				PlayerPrefs.SetFloat("HighScoreTime", finishTime);
+				Debug.Log("HighScoreTime:" + PlayerPrefs.GetFloat("HighScoreTime"));
+			}
 			pc.goalTiming = false;		//一回だけ処理
 		}
 
