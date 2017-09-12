@@ -29,37 +29,80 @@ public class GameController : MonoBehaviour {
 			finishTime = timePlaying;	//ゴール時のタイムを保存
 			//Main0用
 			if(SceneManager.GetActiveScene ().name == "Main0"){
-				Debug.Log("main0----");
+				//ハイスコアの保存(匹数)
+				if(PlayerPrefs.GetInt("HighScorePlayer0") < totalPlayer){
+					//ハイスコア保存
+					PlayerPrefs.SetInt("HighScorePlayer0", totalPlayer);
+					Debug.Log("HighScorePlayer0:" + PlayerPrefs.GetInt("HighScorePlayer0"));
+				}
+				//ハイスコアの保存(タイム)
+				if(PlayerPrefs.GetFloat("HighScoreTime0") < finishTime){
+					//ハイスコア保存
+					PlayerPrefs.SetFloat("HighScoreTime0", finishTime);
+					Debug.Log("HighScoreTime0:" + PlayerPrefs.GetFloat("HighScoreTime0"));
+				}
 			}
 			//Main1用
 			if(SceneManager.GetActiveScene ().name == "Main1"){
-				Debug.Log("main1----");
+				//ハイスコアの保存(匹数)
+				if(PlayerPrefs.GetInt("HighScorePlayer1") < totalPlayer){
+					//ハイスコア保存
+					PlayerPrefs.SetInt("HighScorePlayer1", totalPlayer);
+					Debug.Log("HighScorePlayer1:" + PlayerPrefs.GetInt("HighScorePlayer1"));
+				}
+				//ハイスコアの保存(タイム)
+				if(PlayerPrefs.GetFloat("HighScoreTime1") < finishTime){
+					//ハイスコア保存
+					PlayerPrefs.SetFloat("HighScoreTime1", finishTime);
+					Debug.Log("HighScoreTime1:" + PlayerPrefs.GetFloat("HighScoreTime1"));
+				}
 			}
 			//Main2用
 			if(SceneManager.GetActiveScene ().name == "Main2"){
-				Debug.Log("main2----");
+				//ハイスコアの保存(匹数)
+				if(PlayerPrefs.GetInt("HighScorePlayer2") < totalPlayer){
+					//ハイスコア保存
+					PlayerPrefs.SetInt("HighScorePlayer2", totalPlayer);
+					Debug.Log("HighScorePlayer2:" + PlayerPrefs.GetInt("HighScorePlayer2"));
+				}
+				//ハイスコアの保存(タイム)
+				if(PlayerPrefs.GetFloat("HighScoreTime2") < finishTime){
+					//ハイスコア保存
+					PlayerPrefs.SetFloat("HighScoreTime2", finishTime);
+					Debug.Log("HighScoreTime2:" + PlayerPrefs.GetFloat("HighScoreTime2"));
+				}
 			}
 			//Main3用
 			if(SceneManager.GetActiveScene ().name == "Main3"){
-				Debug.Log("main3----");
+				//ハイスコアの保存(匹数)
+				if(PlayerPrefs.GetInt("HighScorePlayer3") < totalPlayer){
+					//ハイスコア保存
+					PlayerPrefs.SetInt("HighScorePlayer3", totalPlayer);
+					Debug.Log("HighScorePlayer3:" + PlayerPrefs.GetInt("HighScorePlayer3"));
+				}
+				//ハイスコアの保存(タイム)
+				if(PlayerPrefs.GetFloat("HighScoreTime3") < finishTime){
+					//ハイスコア保存
+					PlayerPrefs.SetFloat("HighScoreTime3", finishTime);
+					Debug.Log("HighScoreTime3:" + PlayerPrefs.GetFloat("HighScoreTime3"));
+				}
 			}
 			//Main4用
 			if(SceneManager.GetActiveScene ().name == "Main4"){
-				Debug.Log("main4----");
+				//ハイスコアの保存(匹数)
+				if(PlayerPrefs.GetInt("HighScorePlayer4") < totalPlayer){
+					//ハイスコア保存
+					PlayerPrefs.SetInt("HighScorePlayer4", totalPlayer);
+					Debug.Log("HighScorePlayer4:" + PlayerPrefs.GetInt("HighScorePlayer4"));
+				}
+				//ハイスコアの保存(タイム)
+				if(PlayerPrefs.GetFloat("HighScoreTime4") < finishTime){
+					//ハイスコア保存
+					PlayerPrefs.SetFloat("HighScoreTime4", finishTime);
+					Debug.Log("HighScoreTime4:" + PlayerPrefs.GetFloat("HighScoreTime4"));
+				}
 			}
 
-			//ハイスコアの保存(匹数)
-			if(PlayerPrefs.GetInt("HighScorePlayer") < totalPlayer){
-				//ハイスコア保存
-				PlayerPrefs.SetInt("HighScorePlayer", totalPlayer);
-				Debug.Log("HighScorePlayer:" + PlayerPrefs.GetInt("HighScorePlayer"));
-			}
-			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime") < finishTime){
-				//ハイスコア保存
-				PlayerPrefs.SetFloat("HighScoreTime", finishTime);
-				Debug.Log("HighScoreTime:" + PlayerPrefs.GetFloat("HighScoreTime"));
-			}
 			pc.goalTiming = false;		//一回だけ処理
 		}
 
