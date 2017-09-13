@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour {
 			finishTime = timePlaying;	//ゴール時のタイムを保存
 			pc.goalTiming = false;		//一回だけ処理
 		}
-
+		//Main0用
+		if(SceneManager.GetActiveScene ().name == "Main0"){
 		if(player.transform.position.x > bgCreate){
 			if(bgCreate < goalBg){
 				//ランダムで出現BGを決める
@@ -53,6 +54,7 @@ public class GameController : MonoBehaviour {
 			bgCreate += 18.0f;		//次の判定用に加算
 			bgCreate_posX += 18.0f;	//次の配置用に加算
 			bgCreate_posY -= 1.6f;	//次の配置用に加算
+		}
 		}
 	}
 }
