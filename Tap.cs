@@ -29,7 +29,7 @@ public class Tap : MonoBehaviour {
 //				Debug.Log("Structure!!");
 				structureTap = true;
 			}else if(obj.tag == "TapArea"){
-//				Debug.Log("TapArea!!");
+				Debug.Log("TapArea!!");
 				//ゴール時orゲームオーバーの画面では生成しない判定
 				if(pc.gameOver == false && pc.goalNow == false){
 					//穴埋め用のプレハブを生成する
@@ -41,7 +41,7 @@ public class Tap : MonoBehaviour {
 				}
 				tapArea = true;
 			}else if(obj.tag == "Tumiki"){
-//				Debug.Log("Tuniki!!");
+				Debug.Log("Tuniki!!");
 				Destroy(obj);	//オブジェクトの削除
 			}
 		 }
