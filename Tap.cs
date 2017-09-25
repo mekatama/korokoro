@@ -8,9 +8,12 @@ public class Tap : MonoBehaviour {
 	public bool tapArea = false;		//TapAreaをタップしたかどうかのフラグ
 	public GameObject[] anaumeTumiki;	//穴埋め用のプレハブ。一応、配列で管理
 	GameObject player;					//検索したオブジェクト入れる用
+	AudioSource audioSource;			//AudioSourceコンポーネント取得用
+	public AudioClip audioClipPut;		//PutSE
 
 	void Start () {
 		player = GameObject.FindWithTag ("Player");	//Playerタグのオブジェクトを探す
+		audioSource = gameObject.GetComponent<AudioSource>();	//AudioSourceコンポーネント取得
 	}
 
 	void Update () {
@@ -32,9 +35,13 @@ public class Tap : MonoBehaviour {
 				Debug.Log("TapArea!!");
 				//ゴール時orゲームオーバーの画面では生成しない判定
 				if(pc.gameOver == false && pc.goalNow == false){
+					audioSource.clip = audioClipPut;//SE決定
+					audioSource.Play ();			//SE再生
+					//ランダムで出現playerを決める
+					int aType = Random.Range(0,4);	//0～4のランダム生成
 					//穴埋め用のプレハブを生成する
 					GameObject anaumeT = (GameObject)Instantiate(
-						anaumeTumiki[0],	//ランダム生成に対応する予定
+						anaumeTumiki[aType],	//ランダム生成に対応する予定
 						vec,
 						transform.rotation
 					);
