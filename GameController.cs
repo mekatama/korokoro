@@ -14,8 +14,13 @@ public class GameController : MonoBehaviour {
 	public float timePlaying;			//経過時間
 	public float goalBg;				//goal用BGが出現する判定
 	public float finishTime;			//ゴール時のタイムを保存
+	AudioSource audioSource;			//AudioSourceコンポーネント取得用
+	public AudioClip audioClipStart;	//StartSE
 
 	void Start () {
+		audioSource = gameObject.GetComponent<AudioSource>();	//AudioSourceコンポーネント取得
+		audioSource.clip = audioClipStart;	//SE決定
+		audioSource.Play ();				//SE再生
 	}
 	
 	void Update () {
