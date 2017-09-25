@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Title_Controller : MonoBehaviour {
-	GameObject gameController;	//検索したオブジェクト入れる用
+	GameObject gameController;			//検索したオブジェクト入れる用
 
 	void Start () {
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
@@ -34,7 +34,7 @@ public class Title_Controller : MonoBehaviour {
 		SceneManager.LoadScene("HowToPlay");	//シーンのロード
 	}
 
-	//タイトルに戻るボタン用の制御関数
+	//タイトルに戻るボタン用の制御関数(Stage用)
 	public void OnReturnTitleButtonClicked(){
 		//gcって仮の変数にGameControllerのコンポーネントを入れる
 		GameController gc = gameController.GetComponent<GameController>();
@@ -113,7 +113,11 @@ public class Title_Controller : MonoBehaviour {
 				Debug.Log("HighScoreTime4:" + PlayerPrefs.GetFloat("HighScoreTime4"));
 			}
 		}
+		SceneManager.LoadScene("Title");	//シーンのロード
+	}
 
+	//タイトルに戻るボタン用の制御関数(StageSelect用)
+	public void OnReturnTitleButtonSelectClicked(){
 		SceneManager.LoadScene("Title");	//シーンのロード
 	}
 	
