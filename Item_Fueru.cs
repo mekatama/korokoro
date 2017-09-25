@@ -13,7 +13,7 @@ public class Item_Fueru : MonoBehaviour {
 	//他のオブジェクトとの当たり判定
 	void OnTriggerEnter2D(Collider2D other) {
 		//ランダムで出現playerを決める
-		int pType = Random.Range(0,6);	//0～7のランダム生成 
+		int pType = Random.Range(0,7);	//0～7のランダム生成 
 		//接触時の処理
 		if(other.tag == "Player"){
 			//playerSubを生成する
