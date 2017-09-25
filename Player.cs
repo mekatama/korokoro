@@ -15,12 +15,18 @@ public class Player : MonoBehaviour {
 	public bool goalTiming;			//ゴールタイミングのフラグ(time保存用)
 	public bool goalNow;			//ゴール中のフラグ
 	public bool gameOver;			//ゲームオーバーフラグ
+	AudioSource audioSource;			//AudioSourceコンポーネント取得用
+	public AudioClip audioClipFall;	//FallSE
+	public AudioClip audioClipGet;	//GetSE
+	public AudioClip audioClipGoal;	//GoalSE
+	public AudioClip audioClipJump;	//JumpSE
 
 	void Start () {
 		goalNow = false;
 		gameOver = false;	//初期化
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
+		audioSource = gameObject.GetComponent<AudioSource>();		//AudioSourceコンポーネント取得
 	}
 	
 	void Update () {
@@ -32,6 +38,8 @@ public class Player : MonoBehaviour {
 			//jaump
 			if(gc.playerTap){
 				if(oneTap == false && ground == true){
+					audioSource.clip = audioClipJump;	//SE決定
+					audioSource.Play ();				//SE再生
 					rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
 					rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
 					Debug.Log("PLAYER TAP !!");
@@ -54,12 +62,19 @@ public class Player : MonoBehaviour {
 
 	//他のオブジェクトとの当たり判定
 	void OnTriggerEnter2D(Collider2D other) {
-		//接触時の処理
+		//アイテム取得時の処理
+		if(other.tag == "Item"){
+			audioSource.clip = audioClipGet;	//SE決定
+			audioSource.Play ();				//SE再生
+		}
+			//接触時の処理
 		if(other.tag == "Goal"){
 			cameraFollowStop = true;	//追従停止フラグon
 		}
 		//ゴール時
 		if(other.tag == "GoalUI"){
+			audioSource.clip = audioClipGoal;	//SE決定
+			audioSource.Play ();				//SE再生
 			goalCamvas.enabled = true;	//GoalUI表示
 			playCamvas.enabled = false;	//play中UI非表示
 			goalTiming = true;			//ゴールタイミングのフラグon
@@ -67,6 +82,8 @@ public class Player : MonoBehaviour {
 		}
 		//落下時
 		if(other.tag == "DeadNaraku"){
+			audioSource.clip = audioClipFall;	//SE決定
+			audioSource.Play ();				//SE再生
 			//pcって仮の変数にPlayerのコンポーネントを入れる
 			Player pc = player.GetComponent<Player>();
 
@@ -74,7 +91,7 @@ public class Player : MonoBehaviour {
 			playCamvas.enabled = false;		//play中UI非表示
 			//iTweenで縮小する
 			iTween.ScaleTo (gameObject, iTween.Hash ("x",0, "y", 0, "time", 1f));
-			//0.1秒後に呼び出す
+			//1秒後に呼び出す
 			Invoke("kesu", 1.0f);
 			gameOver = true;				//ゲームオーバーフラグon
 		}
