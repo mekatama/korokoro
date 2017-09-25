@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerSub : MonoBehaviour {
 	GameObject gameController;		//検索したオブジェクト入れる用
 //	GameObject player;				//検索したオブジェクト入れる用
+	AudioSource audioSource;		//AudioSourceコンポーネント取得用
+	public AudioClip audioClipFall;	//FallSE
 
 	void Start () {
 //		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
+		audioSource = gameObject.GetComponent<AudioSource>();		//AudioSourceコンポーネント取得
 	}
 
 	//他のオブジェクトとの当たり判定
@@ -22,6 +25,8 @@ public class PlayerSub : MonoBehaviour {
 		}
 		//落下時
 		if(other.tag == "DeadArea"){
+			audioSource.clip = audioClipFall;	//SE決定
+			audioSource.Play ();				//SE再生
 //			gc.totalPlayer -= 1;	//player数の減算
 			//■ここに縮小処理をいれたい
 //			Destroy(gameObject);	//オブジェクトの削除
