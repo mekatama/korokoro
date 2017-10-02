@@ -26,12 +26,12 @@ public class StageSelect_Controller : MonoBehaviour {
 	//Stage3用の制御関数
 	public void OnStage3ButtonClicked(){
 		//シーン名は仮
-		SceneManager.LoadScene("Main3");	//シーンのロード
+		SceneManager.LoadScene("Main4");	//シーンのロード
 	}
 	//Stage4用の制御関数
 	public void OnStage4ButtonClicked(){
 		//シーン名は仮
-		SceneManager.LoadScene("Main4");	//シーンのロード
+		SceneManager.LoadScene("Main3");	//シーンのロード
 	}
 
 	//タイトルに戻るボタン用の制御関数(StageSelect用)

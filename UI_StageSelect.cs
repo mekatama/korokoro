@@ -19,9 +19,9 @@ public class UI_StageSelect : MonoBehaviour {
 		clearTime1.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime1").ToString("000.00");	
 		playerNum2.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer2").ToString("000");	
 		clearTime2.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime2").ToString("000.00");	
-		playerNum3.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer3").ToString("000");	
-		clearTime3.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime3").ToString("000.00");	
-		playerNum4.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer4").ToString("000");	
-		clearTime4.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime4").ToString("000.00");	
+		playerNum3.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer4").ToString("000");	
+		clearTime3.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime4").ToString("000.00");	
+		playerNum4.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer3").ToString("000");	
+		clearTime4.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime3").ToString("000.00");	
 	}
 }
