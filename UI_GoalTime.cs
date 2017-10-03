@@ -19,7 +19,7 @@ public class UI_GoalTime : MonoBehaviour {
 		//Main0用
 		if(SceneManager.GetActiveScene ().name == "Main0"){
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime0") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime0") > gc.finishTime){
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
 			}else{
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	
@@ -28,7 +28,7 @@ public class UI_GoalTime : MonoBehaviour {
 		//Main1用
 		if(SceneManager.GetActiveScene ().name == "Main1"){
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime1") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime1") > gc.finishTime){
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
 			}else{
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	
@@ -37,7 +37,7 @@ public class UI_GoalTime : MonoBehaviour {
 		//Main2用
 		if(SceneManager.GetActiveScene ().name == "Main2"){
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime2") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime2") > gc.finishTime){
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
 			}else{
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	
@@ -46,7 +46,7 @@ public class UI_GoalTime : MonoBehaviour {
 		//Main3用
 		if(SceneManager.GetActiveScene ().name == "Main3"){
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime3") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime3") > gc.finishTime){
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
 			}else{
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	
@@ -55,7 +55,7 @@ public class UI_GoalTime : MonoBehaviour {
 		//Main4用
 		if(SceneManager.GetActiveScene ().name == "Main4"){
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime4") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime4") > gc.finishTime){
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
 			}else{
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	

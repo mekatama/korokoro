@@ -47,7 +47,7 @@ public class Title_Controller : MonoBehaviour {
 				Debug.Log("HighScorePlayer0:" + PlayerPrefs.GetInt("HighScorePlayer0"));
 			}
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime0") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime0") > gc.finishTime){
 				//ハイスコア保存
 				PlayerPrefs.SetFloat("HighScoreTime0", gc.finishTime);
 				Debug.Log("HighScoreTime0:" + PlayerPrefs.GetFloat("HighScoreTime0"));
@@ -62,7 +62,7 @@ public class Title_Controller : MonoBehaviour {
 				Debug.Log("HighScorePlayer1:" + PlayerPrefs.GetInt("HighScorePlayer1"));
 			}
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime1") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime1") > gc.finishTime){
 				//ハイスコア保存
 				PlayerPrefs.SetFloat("HighScoreTime1", gc.finishTime);
 				Debug.Log("HighScoreTime1:" + PlayerPrefs.GetFloat("HighScoreTime1"));
@@ -77,7 +77,7 @@ public class Title_Controller : MonoBehaviour {
 				Debug.Log("HighScorePlayer2:" + PlayerPrefs.GetInt("HighScorePlayer2"));
 			}
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime2") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime2") > gc.finishTime){
 				//ハイスコア保存
 				PlayerPrefs.SetFloat("HighScoreTime2", gc.finishTime);
 				Debug.Log("HighScoreTime2:" + PlayerPrefs.GetFloat("HighScoreTime2"));
@@ -92,7 +92,7 @@ public class Title_Controller : MonoBehaviour {
 				Debug.Log("HighScorePlayer3:" + PlayerPrefs.GetInt("HighScorePlayer3"));
 			}
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime3") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime3") > gc.finishTime){
 				//ハイスコア保存
 				PlayerPrefs.SetFloat("HighScoreTime3", gc.finishTime);
 				Debug.Log("HighScoreTime3:" + PlayerPrefs.GetFloat("HighScoreTime3"));
@@ -107,7 +107,7 @@ public class Title_Controller : MonoBehaviour {
 				Debug.Log("HighScorePlayer4:" + PlayerPrefs.GetInt("HighScorePlayer4"));
 			}
 			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime4") < gc.finishTime){
+			if(PlayerPrefs.GetFloat("HighScoreTime4") > gc.finishTime){
 				//ハイスコア保存
 				PlayerPrefs.SetFloat("HighScoreTime4", gc.finishTime);
 				Debug.Log("HighScoreTime4:" + PlayerPrefs.GetFloat("HighScoreTime4"));
