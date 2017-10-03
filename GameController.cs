@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour {
 		//ゴール時の処理
 		if(pc.goalTiming){
 			finishTime = timePlaying;	//ゴール時のタイムを保存
+			Debug.Log(finishTime);
 			pc.goalTiming = false;		//一回だけ処理
 		}
 		//Main0用

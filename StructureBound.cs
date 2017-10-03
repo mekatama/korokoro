@@ -18,7 +18,7 @@ public class StructureBound : MonoBehaviour {
 		//タッチに反応
 		if(gc.structureTap && oneTap == false){
 			boundSound.Play();	//SE再生
-			Debug.Log("structure TAP !!");
+//			Debug.Log("structure TAP !!");
 			//ちょっとだけ拡大させる
 			transform.localScale = new Vector2(1.4f, 1.4f);
 			oneTap = true;

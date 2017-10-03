@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	public AudioClip audioClipJump;	//JumpSE
 
 	void Start () {
+		goalTiming = false;
 		goalNow = false;
 		gameOver = false;	//初期化
 		player = GameObject.FindWithTag ("Player");					//Playerタグのオブジェクトを探す
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour {
 					audioSource.Play ();				//SE再生
 					rb.AddForce (Vector2.up * jumpPower);	//AddForceにて上方向へ力を加える
 					rb.AddForce (Vector2.right * 5.0f);//AddForceにて上方向へ力を加える
-					Debug.Log("PLAYER TAP !!");
+//					Debug.Log("PLAYER TAP !!");
 					oneTap = true;
 					ground = false;
 				}

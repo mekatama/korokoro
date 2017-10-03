@@ -32,7 +32,7 @@ public class Tap : MonoBehaviour {
 //				Debug.Log("Structure!!");
 				structureTap = true;
 			}else if(obj.tag == "TapArea"){
-				Debug.Log("TapArea!!");
+//				Debug.Log("TapArea!!");
 				//ゴール時orゲームオーバーの画面では生成しない判定
 				if(pc.gameOver == false && pc.goalNow == false){
 					audioSource.clip = audioClipPut;//SE決定
