@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UI_GoalTime : MonoBehaviour {
 	public Text goalTime;		//ゴールタイムを表示するオブジェクト用
 	GameObject gameController;	//検索したオブジェクト入れる用
+	public GameObject player;			//playerを入れる
 
 	void Start () {
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
@@ -29,7 +30,7 @@ public class UI_GoalTime : MonoBehaviour {
 		if(SceneManager.GetActiveScene ().name == "Main1"){
 			//ハイスコアの保存(タイム)
 			if(PlayerPrefs.GetFloat("HighScoreTime1") > gc.finishTime){
-				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
+				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";
 			}else{
 				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	
 			}
