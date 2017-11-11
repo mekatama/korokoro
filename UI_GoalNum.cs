@@ -20,49 +20,46 @@ public class UI_GoalNum : MonoBehaviour {
 		if(SceneManager.GetActiveScene ().name == "Main0"){
 			//ハイスコアの保存(匹数)
 			if(PlayerPrefs.GetInt("HighScorePlayer0") < gc.totalPlayer){
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000") + "(NewRecord)";	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00") + "(NewRecord)";	
 			}else{
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000");	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00");	
 			}
 		}
 		//Main1用
 		if(SceneManager.GetActiveScene ().name == "Main1"){
 			//ハイスコアの保存(匹数)
 			if(PlayerPrefs.GetInt("HighScorePlayer1") < gc.totalPlayer){
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000") + "(NewRecord)";	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00") + "(NewRecord)";	
 			}else{
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000");	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00");	
 			}
 		}
 		//Main2用
 		if(SceneManager.GetActiveScene ().name == "Main2"){
 			//ハイスコアの保存(匹数)
 			if(PlayerPrefs.GetInt("HighScorePlayer2") < gc.totalPlayer){
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000") + "(NewRecord)";	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00") + "(NewRecord)";	
 			}else{
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000");	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00");	
 			}
 		}
 		//Main3用
 		if(SceneManager.GetActiveScene ().name == "Main3"){
 			//ハイスコアの保存(匹数)
 			if(PlayerPrefs.GetInt("HighScorePlayer3") < gc.totalPlayer){
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000") + "(NewRecord)";	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00") + "(NewRecord)";	
 			}else{
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000");	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00");	
 			}
 		}
 		//Main4用
 		if(SceneManager.GetActiveScene ().name == "Main4"){
 			//ハイスコアの保存(匹数)
 			if(PlayerPrefs.GetInt("HighScorePlayer4") < gc.totalPlayer){
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000") + "(NewRecord)";	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00") + "(NewRecord)";	
 			}else{
-				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("000");	
+				goalNum.text = "IKINOKORI : " + gc.totalPlayer.ToString("00");	
 			}
 		}
-
-
-
 	}
 }

@@ -15,13 +15,13 @@ public class UI_StageSelect : MonoBehaviour {
 
 	void Update () {
 		//ハイスコア系テキストの表示
-		playerNum1.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer1").ToString("000");	
+		playerNum1.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer1").ToString("00");	
 		clearTime1.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime1").ToString("000.00");	
-		playerNum2.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer2").ToString("000");	
+		playerNum2.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer2").ToString("00");	
 		clearTime2.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime2").ToString("000.00");	
-		playerNum3.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer4").ToString("000");	
+		playerNum3.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer4").ToString("00");	
 		clearTime3.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime4").ToString("000.00");	
-		playerNum4.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer3").ToString("000");	
+		playerNum4.text = "Player : " + PlayerPrefs.GetInt("HighScorePlayer3").ToString("00");	
 		clearTime4.text = "Time : " + PlayerPrefs.GetFloat("HighScoreTime3").ToString("000.00");	
 	}
 }
