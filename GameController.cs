@@ -35,32 +35,5 @@ public class GameController : MonoBehaviour {
 			Debug.Log(finishTime);
 			pc.goalTiming = false;		//一回だけ処理
 		}
-		//Main0用
-		if(SceneManager.GetActiveScene ().name == "Main0"){
-		if(player.transform.position.x > bgCreate){
-			if(bgCreate < goalBg){
-				//ランダムで出現BGを決める
-				int aType = Random.Range(0,2);	//挙動確認用仮の値
-				//BGを生成する
-				GameObject bg = (GameObject)Instantiate(
-					bgObject[aType],	//ランダム生成に対応する
-	//				new Vector2(transform.position.x, transform.position.y),
-					new Vector2(bgCreate_posX, bgCreate_posY),
-					transform.rotation
-				);
-			}else{
-				//GOALを生成する
-				Debug.Log("GOAL GO !!");
-				GameObject bg = (GameObject)Instantiate(
-					bgObjectGoal,	//goalオブジェクト
-					new Vector2(bgCreate_posX, bgCreate_posY),
-					transform.rotation
-				);
-			}
-			bgCreate += 18.0f;		//次の判定用に加算
-			bgCreate_posX += 18.0f;	//次の配置用に加算
-			bgCreate_posY -= 1.6f;	//次の配置用に加算
-		}
-		}
 	}
 }
