@@ -9,6 +9,21 @@ public class Title_Controller : MonoBehaviour {
 
 	void Start () {
 		gameController = GameObject.FindWithTag ("GameController");	//GameControllerオブジェクトを探す
+
+		//ハイスコアの初回処理
+		if(PlayerPrefs.GetFloat("HighScoreTime1") == 0.0f){
+			//初期ハイスコア設定
+			PlayerPrefs.SetFloat("HighScoreTime1", 120.0f);
+		}
+		if(PlayerPrefs.GetFloat("HighScoreTime2") == 0.0f){
+			PlayerPrefs.SetFloat("HighScoreTime2", 120.0f);
+		}
+		if(PlayerPrefs.GetFloat("HighScoreTime3") == 0.0f){
+			PlayerPrefs.SetFloat("HighScoreTime3", 120.0f);
+		}
+		if(PlayerPrefs.GetFloat("HighScoreTime4") == 0.0f){
+			PlayerPrefs.SetFloat("HighScoreTime4", 120.0f);
+		}
 	}
 
 	void Update(){
