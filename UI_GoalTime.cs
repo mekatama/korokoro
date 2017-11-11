@@ -17,15 +17,6 @@ public class UI_GoalTime : MonoBehaviour {
 		//gcって仮の変数にGameControllerのコンポーネントを入れる
 		GameController gc = gameController.GetComponent<GameController>();
 
-		//Main0用
-		if(SceneManager.GetActiveScene ().name == "Main0"){
-			//ハイスコアの保存(タイム)
-			if(PlayerPrefs.GetFloat("HighScoreTime0") > gc.finishTime){
-				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000") + "(NewRecord)";	
-			}else{
-				goalTime.text = "CrearTime : " + gc.finishTime.ToString("000.000");	
-			}
-		}
 		//Main1用
 		if(SceneManager.GetActiveScene ().name == "Main1"){
 			//ハイスコアの保存(タイム)
